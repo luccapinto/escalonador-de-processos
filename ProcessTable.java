@@ -1,24 +1,17 @@
-import java.util.HashMap;
-import java.util.Map;
-
+import java.util.List;
+import java.util.ArrayList;
 public class ProcessTable {
-    private Map<String, BCP> table;
+    private List<BCP> processList;
 
     public ProcessTable() {
-        this.table = new HashMap<>();
+        processList = new ArrayList<>();
     }
-
+    
     public void addProcess(BCP bcp) {
-        this.table.put(bcp.getName(), bcp);
+        processList.add(bcp);
     }
 
-    public BCP getProcess(String name) {
-        return this.table.get(name);
+    public void removeProcess(BCP bcp) {
+        processList.remove(bcp);
     }
-
-    public BCP removeProcess(String name) {
-        return this.table.remove(name);
-    }
-
-    // ... outros métodos conforme a necessidade ...
 }

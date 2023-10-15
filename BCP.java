@@ -10,11 +10,12 @@ public class BCP {
     private int y;
     private String state; // PRONTO, EXECUTANDO, BLOQUEADO, TERMINADO
     private List<String> instructions;
+    private int waitTime;
     // ... outros campos necessários ...
 
     public BCP(String filePath) throws IOException {
         // Inicializando a lista de instruções
-        instructions = new ArrayList<>();
+        this.instructions = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             // A primeira linha do arquivo contém o nome do programa
@@ -84,6 +85,16 @@ public class BCP {
         this.instructions = instructions;
     }
 
-    // ... outros métodos conforme a necessidade ...
+    public int getWaitTime() {
+        return waitTime;
+    }
+
+    public void setWaitTime(int waitTime) {
+        this.waitTime = waitTime;
+    }
+
+    public void decreaseWaitTime(){
+        this.waitTime--;
+    }
 
 }
