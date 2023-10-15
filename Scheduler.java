@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.text.DecimalFormat;
 
 public class Scheduler {
     private List<BCP> readyprocesses;
     private List<BCP> blockedprocesses;
     private int quantum;
-    private double ntrocas =0;
+    private double ntrocas = 0;
     private double mediatrocas;
-    private double nprocessos =0;
+    private double nprocessos = 0;
     private double mediainstrucoes;
     private double ninstrucoes;
 
@@ -15,7 +16,7 @@ public class Scheduler {
         this.readyprocesses = processes;
         this.blockedprocesses = new ArrayList<>(); // Inicialização da fila de processos bloqueados
         this.quantum = quantum;
-        this.processos = processes.size();
+        nprocessos = processes.size();
     }
 
     public void executeProcesses() {
@@ -64,39 +65,51 @@ public class Scheduler {
                         break;
                 }
                 i++;
-                ntrocas++;
+                ntrocas++; //atualiza  o total de trocas
+                ninstrucoes += executedInstructions; //atualiza o total de instruções executadas
             }
-        }
-        logFile.writeLog("MEDIA DE TROCAS: " + (mediatrocas = ntrocas/nprocessos));
-        logFile.writeLog("MEDIA DE INSTRUCOES: " + (mediainstrucoes = ninstrucoes / ntrocas));
-        logFile.writeLog("QUANTUM: " + quantum);
-    }
 
+        }
+        
+        //cálculo das médias apos todos os processos
+        mediatrocas = ntrocas / nprocessos;
+        mediainstrucoes = ninstrucoes / ntrocas;
+
+        DecimalFormat df = new DecimalFormat("#.#"); // Formato para uma casa decimal no log
+        logFile.writeLog("MEDIA DE TROCAS: " + df.format(mediatrocas));
+        logFile.writeLog("MEDIA DE INSTRUCOES: " + df.format(mediainstrucoes));
+        logFile.writeLog("QUANTUM: " + quantum);
+    
+    }
 
     private int executeInstructions(BCP bcp, int quantum, int index, LogFile logFile) {
         int executedInstructions = 0;
-        for(int j = 0; readyprocesses.get(index).getPc() < readyprocesses.get(index).getInstructions().size() && j < quantum; readyprocesses.get(index).incrementPc(), j++){
-            String comando = readyprocesses.get(index).getInstructions().get(readyprocesses.get(index).getPc()).substring(0, 2); 
-            switch(comando){
+        List<String> instructions = readyprocesses.get(index).getInstructions(); // salva o numero de instruções para evitar saida do array
+    
+        for (int j = 0; bcp.getPc() < instructions.size() && j < quantum; bcp.incrementPc(), j++) {
+            String comando = instructions.get(bcp.getPc()).substring(0, 2); 
+            switch(comando) {
                 case "CO":
-                executedInstructions++;
-                break;
+                    executedInstructions++;
+                    break;
                 case "E/":
                     readyprocesses.get(index).setWaitTime(2);
                     blockedprocesses.add(readyprocesses.get(index));
                     readyprocesses.remove(index);
                     bcp.setState("BLOQUEADO");
                     logFile.writeLog("E/S iniciada em " + bcp.getName());
-                    j=quantum; //força saída do loop
+                    j = quantum; // Força a saída do loop
                     executedInstructions++;
-                break;
+                    break;
                 case "SA":
                     bcp.setState("TERMINADO");
                     readyprocesses.remove(index);
-                    j=quantum; //força saída do loop
-                break;
+                    j = quantum; // Força a saída do loop
+                    break;
             }
         }
         return executedInstructions;
     }
+    
+ 
 }
