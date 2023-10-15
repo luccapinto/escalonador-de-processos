@@ -289,3 +289,496 @@ Carregando TESTE-8
 Carregando TESTE-9
 Carregando TESTE-10
 Carregando 3
+Carregando TESTE-1
+Carregando TESTE-2
+Carregando TESTE-3
+Carregando TESTE-4
+Carregando TESTE-5
+Carregando TESTE-6
+Carregando TESTE-7
+Carregando TESTE-8
+Carregando TESTE-9
+Carregando TESTE-10
+Carregando 3
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+01 terminado. X=x_value. Y=y_value
+Executando 02
+Interrompendo 02 após 2 instruções
+Executando 03
+Interrompendo 03 após 2 instruções
+Executando 04
+Interrompendo 04 após 2 instruções
+Executando 05
+Interrompendo 05 após 3 instruções
+Executando 06
+06 terminado. X=x_value. Y=y_value
+Executando 07
+Interrompendo 07 após 2 instruções
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando 09
+Interrompendo 09 após 2 instruções
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+Executando 02
+02 terminado. X=x_value. Y=y_value
+Executando 03
+Interrompendo 03 após 3 instruções
+Executando 04
+Interrompendo 04 após 1 instruções
+Executando 05
+Interrompendo 05 após 3 instruções
+Executando 07
+07 terminado. X=x_value. Y=y_value
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando 03
+03 terminado. X=x_value. Y=y_value
+Executando 04
+Interrompendo 04 após 3 instruções
+Executando 05
+05 terminado. X=x_value. Y=y_value
+Executando 04
+Interrompendo 04 após 2 instruções
+Executando 04
+04 terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 11
+MEDIA DE INSTRUCOES: 4.636363636363637
+QUANTUM: 3
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+Interrompendo 01 após 1 instruções
+Executando 02
+02 terminado. X=x_value. Y=y_value
+Executando 03
+03 terminado. X=x_value. Y=y_value
+Executando 04
+Interrompendo 04 após 3 instruções
+Executando 05
+05 terminado. X=x_value. Y=y_value
+Executando 06
+06 terminado. X=x_value. Y=y_value
+Executando 07
+07 terminado. X=x_value. Y=y_value
+Executando 08
+Interrompendo 08 após 2 instruções
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando 10
+Interrompendo 10 após 2 instruções
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+Executando 01
+Interrompendo 01 após 1 instruções
+Executando 04
+Interrompendo 04 após 1 instruções
+Executando 08
+Interrompendo 08 após 3 instruções
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando 01
+01 terminado. X=x_value. Y=y_value
+Executando 04
+Interrompendo 04 após 1 instruções
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando 04
+Interrompendo 04 após 2 instruções
+Executando 04
+04 terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 9
+MEDIA DE INSTRUCOES: 4.444444444444445
+QUANTUM: 3
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+01 terminado. X=x_value. Y=y_value
+Executando 02
+Interrompendo 02 após 1 instruções
+Executando 03
+03 terminado. X=x_value. Y=y_value
+Executando 04
+Interrompendo 04 após 2 instruções
+Executando 05
+05 terminado. X=x_value. Y=y_value
+Executando 06
+06 terminado. X=x_value. Y=y_value
+Executando 07
+07 terminado. X=x_value. Y=y_value
+Executando 08
+Interrompendo 08 após 1 instruções
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando 10
+Interrompendo 10 após 1 instruções
+Executando quantum
+Interrompendo quantum após 3 instruções
+Executando 02
+Interrompendo 02 após 2 instruções
+Executando 04
+04 terminado. X=x_value. Y=y_value
+Executando 08
+Interrompendo 08 após 3 instruções
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando quantum
+Interrompendo quantum após 1 instruções
+Executando 02
+Interrompendo 02 após 2 instruções
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando quantum
+Interrompendo quantum após 2 instruções
+Executando 02
+Interrompendo 02 após 3 instruções
+Executando quantum
+Interrompendo quantum após 2 instruções
+Executando 02
+Interrompendo 02 após 2 instruções
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+Executando 02
+Interrompendo 02 após 1 instruções
+Executando 02
+02 terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 14
+MEDIA DE INSTRUCOES: 3.357142857142857
+QUANTUM: 3
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+Interrompendo 01 após 2 instruções
+Executando 02
+02 terminado. X=x_value. Y=y_value
+Executando 03
+Interrompendo 03 após 1 instruções
+Executando 04
+Interrompendo 04 após 3 instruções
+Executando 05
+05 terminado. X=x_value. Y=y_value
+Executando 06
+Interrompendo 06 após 2 instruções
+Executando 07
+07 terminado. X=x_value. Y=y_value
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando 09
+Interrompendo 09 após 3 instruções
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+Executando 01
+Interrompendo 01 após 3 instruções
+Executando 03
+03 terminado. X=x_value. Y=y_value
+Executando 04
+04 terminado. X=x_value. Y=y_value
+Executando 06
+Interrompendo 06 após 3 instruções
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando 01
+Interrompendo 01 após 3 instruções
+Executando 06
+Interrompendo 06 após 2 instruções
+Executando 01
+01 terminado. X=x_value. Y=y_value
+Executando 06
+Interrompendo 06 após 3 instruções
+Executando 06
+Interrompendo 06 após 1 instruções
+Executando 06
+06 terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 11
+MEDIA DE INSTRUCOES: 3.8181818181818183
+QUANTUM: 3
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+01 terminado. X=x_value. Y=y_value
+Executando 02
+02 terminado. X=x_value. Y=y_value
+Executando 03
+03 terminado. X=x_value. Y=y_value
+Executando 04
+Interrompendo 04 após 1 instruções
+Executando 05
+Interrompendo 05 após 3 instruções
+Executando 06
+Interrompendo 06 após 1 instruções
+Executando 07
+Interrompendo 07 após 3 instruções
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando 10
+Interrompendo 10 após 3 instruções
+Executando quantum
+Interrompendo quantum após 2 instruções
+Executando 04
+Interrompendo 04 após 2 instruções
+Executando 05
+05 terminado. X=x_value. Y=y_value
+Executando 06
+06 terminado. X=x_value. Y=y_value
+Executando 07
+Interrompendo 07 após 3 instruções
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando quantum
+Interrompendo quantum após 1 instruções
+Executando 04
+04 terminado. X=x_value. Y=y_value
+Executando 07
+Interrompendo 07 após 1 instruções
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+Executando 07
+07 terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 10
+MEDIA DE INSTRUCOES: 3.8
+QUANTUM: 3
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+01 terminado. X=x_value. Y=y_value
+Executando 02
+Interrompendo 02 após 1 instruções
+Executando 03
+Interrompendo 03 após 2 instruções
+Executando 04
+04 terminado. X=x_value. Y=y_value
+Executando 05
+05 terminado. X=x_value. Y=y_value
+Executando 06
+06 terminado. X=x_value. Y=y_value
+Executando 07
+07 terminado. X=x_value. Y=y_value
+Executando 08
+Interrompendo 08 após 2 instruções
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando 10
+Interrompendo 10 após 1 instruções
+Executando quantum
+Interrompendo quantum após 1 instruções
+Executando 02
+02 terminado. X=x_value. Y=y_value
+Executando 03
+Interrompendo 03 após 3 instruções
+Executando 08
+Interrompendo 08 após 2 instruções
+Executando 10
+Interrompendo 10 após 2 instruções
+Executando quantum
+Interrompendo quantum após 1 instruções
+Executando 03
+Interrompendo 03 após 2 instruções
+Executando 08
+Interrompendo 08 após 1 instruções
+Executando 10
+Interrompendo 10 após 3 instruções
+Executando quantum
+Interrompendo quantum após 3 instruções
+Executando 03
+03 terminado. X=x_value. Y=y_value
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando 10
+Interrompendo 10 após 3 instruções
+Executando quantum
+Interrompendo quantum após 3 instruções
+Executando 10
+Interrompendo 10 após 3 instruções
+Executando quantum
+Interrompendo quantum após 2 instruções
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando quantum
+Interrompendo quantum após 2 instruções
+Executando quantum
+Interrompendo quantum após 2 instruções
+Executando quantum
+Interrompendo quantum após 1 instruções
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 20
+MEDIA DE INSTRUCOES: 3.0
+QUANTUM: 3
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+Interrompendo 01 após 2 instruções
+Executando 02
+02 terminado. X=x_value. Y=y_value
+Executando 03
+03 terminado. X=x_value. Y=y_value
+Executando 04
+Interrompendo 04 após 2 instruções
+Executando 05
+05 terminado. X=x_value. Y=y_value
+Executando 06
+Interrompendo 06 após 1 instruções
+Executando 07
+07 terminado. X=x_value. Y=y_value
+Executando 08
+Interrompendo 08 após 1 instruções
+Executando 09
+Interrompendo 09 após 2 instruções
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando quantum
+Interrompendo quantum após 3 instruções
+Executando 01
+Interrompendo 01 após 1 instruções
+Executando 04
+Interrompendo 04 após 1 instruções
+Executando 06
+Interrompendo 06 após 2 instruções
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+Executando 01
+Interrompendo 01 após 3 instruções
+Executando 04
+04 terminado. X=x_value. Y=y_value
+Executando 06
+06 terminado. X=x_value. Y=y_value
+Executando 01
+01 terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 10
+MEDIA DE INSTRUCOES: 3.8
+QUANTUM: 3
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+01 terminado. X=x_value. Y=y_value
+Executando 02
+02 terminado. X=x_value. Y=y_value
+Executando 03
+Interrompendo 03 após 1 instruções
+Executando 04
+04 terminado. X=x_value. Y=y_value
+Executando 05
+05 terminado. X=x_value. Y=y_value
+Executando 06
+Interrompendo 06 após 3 instruções
+Executando 07
+07 terminado. X=x_value. Y=y_value
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando 09
+Interrompendo 09 após 2 instruções
+Executando 10
+Interrompendo 10 após 1 instruções
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+Executando 03
+Interrompendo 03 após 1 instruções
+Executando 06
+Interrompendo 06 após 1 instruções
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando 03
+Interrompendo 03 após 2 instruções
+Executando 06
+Interrompendo 06 após 3 instruções
+Executando 03
+Interrompendo 03 após 2 instruções
+Executando 06
+06 terminado. X=x_value. Y=y_value
+Executando 03
+Interrompendo 03 após 1 instruções
+Executando 03
+Interrompendo 03 após 1 instruções
+Executando 03
+Interrompendo 03 após 3 instruções
+Executando 03
+03 terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 12
+MEDIA DE INSTRUCOES: 3.8333333333333335
+QUANTUM: 3
