@@ -38,32 +38,36 @@ public class Scheduler {
                 }
             }
 
-            BCP bcp = readyprocesses.get(i);
-            if (bcp != null) {
-                bcp.setState("EXECUTANDO");
-                logFile.writeLog("Executando " + bcp.getName());
-                int pcinicial = bcp.getPc();
-                int executedInstructions = executeInstructions(bcp, quantum, i, logFile);
-                switch (bcp.getState()) {
-                    case "BLOQUEADO":
-                        logFile.writeLog("Interrompendo " + bcp.getName() + " após " + executedInstructions + " instruções.");
-                        break;
-                    case "TERMINADO":
-                        logFile.writeLog(bcp.getName() + " terminado. X=" + bcp.getX() + ". Y=" + bcp.getY());
-                        break;
-                    case "EXECUTANDO":
-                        if(bcp.getPc() - pcinicial == 0){
-                            bcp.setState("TERMINADO");
-                            readyprocesses.remove(i);
-                        }
-                        else{
+            
+            for (int j = 0; j < readyprocesses.size(); j++) {
+                BCP bcp = readyprocesses.get(i);
+                if (bcp != null) {
+                    bcp.setState("EXECUTANDO");
+                    logFile.writeLog("Executando " + bcp.getName());
+                    int pcinicial = bcp.getPc();
+                    int executedInstructions = executeInstructions(bcp, quantum, i, logFile);
+                    switch (bcp.getState()) {
+                        case "BLOQUEADO":
                             logFile.writeLog("Interrompendo " + bcp.getName() + " após " + executedInstructions + " instruções.");
+                            break;
+                        case "TERMINADO":
+                            logFile.writeLog(bcp.getName() + " terminado. X=" + bcp.getX() + ". Y=" + bcp.getY());
+                            break;
+                        case "EXECUTANDO":
+                            if(bcp.getPc() - pcinicial == 0){
+                                bcp.setState("TERMINADO");
+                                readyprocesses.remove(i);
+                            }
+                            else{
+                                logFile.writeLog("Interrompendo " + bcp.getName() + " após " + executedInstructions + " instruções.");
+                            }
+                            break;
                         }
-                        break;
+                    i++;
+                    ntrocas++; //atualiza  o total de trocas
+                    ninstrucoes += executedInstructions; //atualiza o total de instruções executadas
                 }
-                i++;
-                ntrocas++; //atualiza  o total de trocas
-                ninstrucoes += executedInstructions; //atualiza o total de instruções executadas
+
             }
 
         }
