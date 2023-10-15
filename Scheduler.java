@@ -16,6 +16,14 @@ public class Scheduler {
         while (!readyprocesses.isEmpty() || !blockedprocesses.isEmpty()) {
             // Manipulação de processos bloqueados...
             // [Lógica para mover processos de blockedprocesses para readyprocesses conforme necessário]
+            if(!blockedprocesses.isEmpty()){
+                for(int i = 0; i < blockedprocesses.size(); i++){
+                    ((LinkedList<BCP>) blockedprocesses).get(i).decreaseWaitTime();
+                        if(((LinkedList<BCP>) blockedprocesses).get(i).getWaitTime() <= 0){
+                            readyprocesses.add(((LinkedList<BCP>) blockedprocesses).get(i));
+                            blockedprocesses.remove(i);
+                }
+            }
 
             BCP bcp = readyprocesses.poll();
             if (bcp != null) {
@@ -38,9 +46,10 @@ public class Scheduler {
                         break;
                 }
             }
+            }
         }
-    }
 
+    }
     private int executeInstructions(BCP bcp, int quantum) {
         int executedInstructions = 0;
         // Implemente a lógica de execução de instruções aqui, modificando bcp conforme necessário.
