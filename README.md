@@ -3,4 +3,6 @@ Escalonador de tarefas para Time Sharing em uma máquina de um único processado
 
 ## Programa criado como exercício de programação da matéria de Sistemas Operacionais
 ### Integrantes do grupo:
-* Lucca Rodrigues Assunção Pinto
+*  Armando Augusto Marchini Vidal
+*  Lucca Rodrigues Assunção Pinto
+*  Marcos Vilela Rezende Júnior
