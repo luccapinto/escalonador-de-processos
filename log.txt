@@ -1,21 +1,63 @@
-MEDIA DE TROCAS: 0
-MEDIA DE INSTRUCOES: NaN
 QUANTUM: 3
-MEDIA DE TROCAS: 0
-MEDIA DE INSTRUCOES: NaN
+Carregando 01.txt
+Carregando 02.txt
+Carregando 03.txt
+Carregando 04.txt
+Carregando 05.txt
+Carregando 06.txt
+Carregando 07.txt
+Carregando 08.txt
+Carregando 09.txt
+Carregando 10.txt
+Carregando quantum.txt
+Executando 01
+01 terminado. X=x_value. Y=y_value
+Executando 02
+02 terminado. X=x_value. Y=y_value
+Executando 03
+03 terminado. X=x_value. Y=y_value
+Executando 04
+04 terminado. X=x_value. Y=y_value
+Executando 05
+Interrompendo 05 após 3 instruções
+Executando 06
+06 terminado. X=x_value. Y=y_value
+Executando 07
+Interrompendo 07 após 1 instruções
+Executando 08
+Interrompendo 08 após 1 instruções
+Executando 09
+Interrompendo 09 após 2 instruções
+Executando 10
+10 terminado. X=x_value. Y=y_value
+Executando quantum
+quantum terminado. X=x_value. Y=y_value
+Executando 05
+Interrompendo 05 após 2 instruções
+Executando 07
+Interrompendo 07 após 2 instruções
+Executando 08
+Interrompendo 08 após 2 instruções
+Executando 09
+Interrompendo 09 após 2 instruções
+Executando 05
+Interrompendo 05 após 2 instruções
+Executando 07
+07 terminado. X=x_value. Y=y_value
+Executando 08
+Interrompendo 08 após 2 instruções
+Executando 09
+Interrompendo 09 após 1 instruções
+Executando 05
+Interrompendo 05 após 2 instruções
+Executando 08
+08 terminado. X=x_value. Y=y_value
+Executando 09
+09 terminado. X=x_value. Y=y_value
+Executando 05
+Interrompendo 05 após 2 instruções
+Executando 05
+05 terminado. X=x_value. Y=y_value
+MEDIA DE TROCAS: 13
+MEDIA DE INSTRUCOES: 3.769230769230769
 QUANTUM: 3
-MEDIA DE TROCAS: 0
-MEDIA DE INSTRUCOES: NaN
-QUANTUM: 3
-MEDIA DE TROCAS: 0
-MEDIA DE INSTRUCOES: NaN
-QUANTUM: 21
-MEDIA DE TROCAS: 0
-MEDIA DE INSTRUCOES: NaN
-QUANTUM: 21
-MEDIA DE TROCAS: 0
-MEDIA DE INSTRUCOES: NaN
-QUANTUM: 21
-MEDIA DE TROCAS: 0
-MEDIA DE INSTRUCOES: NaN
-QUANTUM: 21

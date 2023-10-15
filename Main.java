@@ -3,38 +3,35 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        // Caminho da pasta "programas" e log file
         String programsPath = "programas";
         LogFile logFile = new LogFile("log.txt");
 
         // Carregar os programas
         List<String> programs = loadPrograms(programsPath, logFile);
-
-        // Lê o quantum do arquivo
+        
         int quantum = readQuantum("programas/quantum.txt");
         if (quantum <= 0) {
             System.out.println("Quantum inválido. Finalizando programa.");
             return;
         }
-        
-        // Estatísticas
+
         int totalSwitches = 0;
         int totalInstructions = 0;
 
-        // Executar os programas
         while (!programs.isEmpty()) {
             List<String> finishedPrograms = new ArrayList<>();
             for (String program : programs) {
                 logFile.writeLog("Executando " + program);
                 
-                // Exemplo: executar o programa e interromper após 'quantum' instruções
                 int instructionsExecuted = runProgram(program, quantum);
                 totalInstructions += instructionsExecuted;
                 
-                // Checar se o programa terminou
                 if (isProgramFinished(program)) {
                     logFile.writeLog(program + " terminado. X=x_value. Y=y_value");
                     finishedPrograms.add(program);
@@ -43,43 +40,54 @@ public class Main {
                     totalSwitches++;
                 }
             }
-            programs.removeAll(finishedPrograms);  // Remover programas finalizados
+            programs.removeAll(finishedPrograms);
         }
         
-        // Estatísticas
         logFile.writeLog("MEDIA DE TROCAS: " + totalSwitches);
-        logFile.writeLog("MEDIA DE INSTRUCOES: " + (double) totalInstructions / totalSwitches);
+        if(totalSwitches != 0) {
+            logFile.writeLog("MEDIA DE INSTRUCOES: " + (double) totalInstructions / totalSwitches);
+        } else {
+            logFile.writeLog("MEDIA DE INSTRUCOES: NaN");
+        }
         logFile.writeLog("QUANTUM: " + quantum);
         
-        // Ler e exibir o log
         logFile.readLog();
     }
 
     private static List<String> loadPrograms(String path, LogFile logFile) {
-        // Implemente a lógica para carregar os nomes/detalhes dos programas na pasta
-        // e escrever mensagens no log conforme necessário.
-        return new ArrayList<>(); // Retorne a lista de programas
+        List<String> programs = new ArrayList<>();
+        try {
+            Files.list(Paths.get(path))
+                 .filter(Files::isRegularFile)
+                 .map(Path::toFile)
+                 .forEach(file -> {
+                     logFile.writeLog("Carregando " + file.getName());
+                     programs.add(file.getName().replace(".txt", ""));
+                 });
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Trate o erro conforme a necessidade do seu aplicativo.
+        }
+        return programs;
     }
     
     private static int runProgram(String program, int quantum) {
-        // Implemente a lógica para executar o programa até o quantum ou até ele terminar.
-        // Retorne o número de instruções executadas.
-        return 0;
+        // Mocked execution logic. Replace with actual logic for running programs.
+        int instructionsExecuted = (int)(Math.random() * quantum) + 1; // Random number from 1 to quantum
+        return instructionsExecuted;
     }
     
     private static boolean isProgramFinished(String program) {
-        // Implemente a lógica para verificar se o programa terminou.
-        return false;
+        // Mocked finish check logic. Replace with actual logic for checking program finish state.
+        return Math.random() > 0.5; // Randomly finishes or not
     }
 
     private static int readQuantum(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-            // Lê a primeira linha do arquivo e converte para int
             return Integer.parseInt(br.readLine().trim());
         } catch (IOException | NumberFormatException e) {
-            // Trata exceções de I/O e formatação do número
             e.printStackTrace();
-            return -1;  // Retorna -1 para indicar erro na leitura/conversão
+            return -1;  
         }
     }
 }
