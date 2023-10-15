@@ -1,39 +1,24 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProcessTable {
-
-    private List<Process> processTable;
+    private Map<String, BCP> table;
 
     public ProcessTable() {
-        this.processTable = new ArrayList<>();
+        this.table = new HashMap<>();
     }
 
-    public void addProcess(Process process) {
-        this.processTable.add(process);
+    public void addProcess(BCP bcp) {
+        this.table.put(bcp.getName(), bcp);
     }
 
-    public Process getProcess(String processName) {
-        for (Process process : processTable) {
-            if (process.name.equals(processName)) {
-                return process;
-            }
-        }
-        return null; // Caso não encontre o processo pelo nome.
+    public BCP getProcess(String name) {
+        return this.table.get(name);
     }
 
-    public boolean removeProcess(String processName) {
-        Process processToRemove = getProcess(processName);
-        if (processToRemove != null) {
-            this.processTable.remove(processToRemove);
-            return true; // Remoção bem-sucedida
-        }
-        return false; // Falha na remoção
+    public BCP removeProcess(String name) {
+        return this.table.remove(name);
     }
 
-    public List<Process> getProcesses() {
-        return this.processTable;
-    }
-
-    // Outros métodos úteis podem ser adicionados conforme a necessidade.
+    // ... outros métodos conforme a necessidade ...
 }
