@@ -67,8 +67,8 @@ public class Scheduler {
             }
 
         }
-        logFile.writeLog("MEDIA DE TROCAS: " + (ntrocas/nprocessos));
-        logFile.writeLog("MEDIA DE INSTRUCOES: " + (ninstrucoes / ntrocas) );
+        logFile.writeLog("MEDIA DE TROCAS: " + String.format("%.2f", (double) ntrocas / nprocessos));
+        logFile.writeLog("MEDIA DE INSTRUCOES: " + String.format("%.2f", (double) ninstrucoes / ntrocas));
         logFile.writeLog("QUANTUM: " + quantum);
     
     }
