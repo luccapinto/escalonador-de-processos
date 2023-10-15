@@ -15,7 +15,7 @@ public class Main {
         LogFile logFile = new LogFile("log.txt");
 
         // Carregar os programas
-        Queue<BCP> programs = loadPrograms(programsPath, logFile);
+        List<BCP> programs = loadPrograms(programsPath, logFile);
         
         int quantum = readQuantum("programas/quantum.txt");
         if (quantum <= 0) {
@@ -26,8 +26,8 @@ public class Main {
         processes.executeProcesses();
     }
 
-    private static Queue<BCP> loadPrograms(String path, LogFile logFile) {
-        Queue<BCP> programs = new LinkedList<>();
+    private static List<BCP> loadPrograms(String path, LogFile logFile) {
+        List<BCP> programs = new ArrayList<>();
         try {
             Files.list(Paths.get(path))
                  .filter(Files::isRegularFile)

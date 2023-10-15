@@ -1,47 +1,51 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Scheduler {
-    private Queue<BCP> readyprocesses;
-    private Queue<BCP> blockedprocesses;
+    private List<BCP> readyprocesses;
+    private List<BCP> blockedprocesses;
     private int quantum;
 
-    public Scheduler(Queue<BCP> processes, int quantum) {
+    public Scheduler(List<BCP> processes, int quantum) {
         this.readyprocesses = processes;
-        this.blockedprocesses = new LinkedList<>(); // Inicialização da fila de processos bloqueados
+        this.blockedprocesses = new ArrayList<>(); // Inicialização da fila de processos bloqueados
         this.quantum = quantum;
     }
 
     public void executeProcesses() {
-        while (!readyprocesses.isEmpty() || !blockedprocesses.isEmpty()) {
+        LogFile logFile = new LogFile("log.txt");
+        int i = 0;
+        while (!readyprocesses.isEmpty() && !blockedprocesses.isEmpty()) {
+            if(i >= readyprocesses.size()){
+                i = 0;
+            }
             // Manipulação de processos bloqueados...
             // [Lógica para mover processos de blockedprocesses para readyprocesses conforme necessário]
             if(!blockedprocesses.isEmpty()){
-                for(int i = 0; i < blockedprocesses.size(); i++){
-                    ((LinkedList<BCP>) blockedprocesses).get(i).decreaseWaitTime();
-                        if(((LinkedList<BCP>) blockedprocesses).get(i).getWaitTime() <= 0){
-                            readyprocesses.add(((LinkedList<BCP>) blockedprocesses).get(i));
-                            blockedprocesses.remove(i);
+                for(int n = 0; i < blockedprocesses.size(); n++){
+                    blockedprocesses.get(n).decreaseWaitTime();
+                        if(blockedprocesses.get(n).getWaitTime() <= 0){
+                            readyprocesses.add((blockedprocesses).get(n));
+                            blockedprocesses.remove(n);
                 }
             }
 
-            BCP bcp = readyprocesses.poll();
+            BCP bcp = readyprocesses.get(i);
             if (bcp != null) {
                 bcp.setState("EXECUTANDO");
-                logProcessAction("Executando " + bcp.getName());
+                logFile.writeLog("Executando " + bcp.getName());
 
                 int executedInstructions = executeInstructions(bcp, quantum);
-                
                 switch (bcp.getState()) {
                     case "BLOQUEADO":
-                        logProcessAction(bcp.getName() + " bloqueado após " + executedInstructions + " instruções.");
+                        logFile.writeLog(bcp.getName() + " bloqueado após " + executedInstructions + " instruções.");
                         blockedprocesses.add(bcp);
                         break;
                     case "TERMINADO":
-                        logProcessAction(bcp.getName() + " terminado. X=" + bcp.getX() + ". Y=" + bcp.getY());
+                        logFile.writeLog(bcp.getName() + " terminado. X=" + bcp.getX() + ". Y=" + bcp.getY());
                         break;
                     case "EXECUTANDO":
-                        logProcessAction("Interrompendo " + bcp.getName() + " após " + executedInstructions + " instruções.");
+                        logFile.writeLog("Interrompendo " + bcp.getName() + " após " + executedInstructions + " instruções.");
                         readyprocesses.add(bcp);
                         break;
                 }
@@ -50,9 +54,28 @@ public class Scheduler {
         }
 
     }
+
     private int executeInstructions(BCP bcp, int quantum) {
         int executedInstructions = 0;
-        // Implemente a lógica de execução de instruções aqui, modificando bcp conforme necessário.
+        for(int j = 0; readyprocesses.get(0).getPc() < readyprocesses.get(0).getInstructions().size() && j < quantum; readyprocesses.get(0).incrementPc(), j++){
+            String comando = readyprocesses.get(0).getInstructions().get(readyprocesses.get(0).getPc()).substring(0, 2); 
+            switch(comando){
+                case "CO":
+                executedInstructions++;
+                break;
+                case "E/":
+                    readyprocesses.get(0).setWaitTime(2);
+                    blockedprocesses.add(readyprocesses.get(0));
+                    bcp.setState("BLOQUEADO");
+                    j=quantum; //força saída do loop
+                    executedInstructions++;
+                break;
+                case "SA":
+                    bcp.setState("TERMINADO");
+                    j=quantum; //força saída do loop
+                break;
+            }
+        }
         return executedInstructions;
     }
 
