@@ -8,6 +8,7 @@ public class BCP {
     private String name;
     private int x;
     private int y;
+    private int pc;
     private String state; // PRONTO, EXECUTANDO, BLOQUEADO, TERMINADO
     private List<String> instructions;
     private int waitTime;
@@ -16,6 +17,8 @@ public class BCP {
     public BCP(String filePath) throws IOException {
         // Inicializando a lista de instruções
         this.instructions = new ArrayList<>();
+        this.pc = 0;
+        this.waitTime = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             // A primeira linha do arquivo contém o nome do programa
@@ -95,6 +98,18 @@ public class BCP {
 
     public void decreaseWaitTime(){
         this.waitTime--;
+    }
+
+    public int getPc() {
+        return pc;
+    }
+
+    public void setPc(int pc) {
+        this.pc = pc;
+    }
+
+    public void incrementPc(){
+        this.pc++;
     }
 
 }
