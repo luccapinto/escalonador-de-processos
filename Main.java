@@ -7,14 +7,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         // Caminho da pasta "programas" e log file
-        String programsPath = "C:\\Users\\tripa\\Desktop\\EssaMerda\\EP\\src\\programas";
+        String programsPath = "programas";
         LogFile logFile = new LogFile("log.txt");
 
         // Carregar os programas
         List<String> programs = loadPrograms(programsPath, logFile);
 
         // Lê o quantum do arquivo
-        int quantum = readQuantum(programsPath + "/quantum.txt");
+        int quantum = readQuantum("programas/quantum.txt");
         if (quantum <= 0) {
             System.out.println("Quantum inválido. Finalizando programa.");
             return;
