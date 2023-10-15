@@ -11,7 +11,7 @@ def save_to_output(lines, output_path):
 
 def main():
     log_dir = 'logfiles'  # Substitua pelo caminho correto
-    output_path = 'testes.txt'  # Substitua pelo caminho correto
+    output_path = 'LogsExtraidos.txt'  # Substitua pelo caminho correto
 
     # Obtém uma lista de todos os arquivos .txt no diretório
     filenames = [f for f in os.listdir(log_dir) if f.endswith('.txt')]
