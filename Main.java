@@ -20,11 +20,11 @@ public class Main {
             System.out.println("Quantum inválido. Finalizando programa.");
             return;
         }
-        printPrograms(programs);
+        // printPrograms(programs);
         Scheduler processes = new Scheduler(programs, quantum);
         processes.executeProcesses();
     }
-
+/* 
     public static void printPrograms(List<BCP> programs) {
         if (programs.isEmpty()) {
             System.out.println("Nenhum programa carregado.");
@@ -38,7 +38,7 @@ public class Main {
             // Adicione mais linhas aqui se a classe BCP tiver mais informações que você queira imprimir.
         }
     }
-    
+*/
 
     private static List<BCP> loadPrograms(String path, LogFile logFile) {
         List<BCP> programs = new ArrayList<>();

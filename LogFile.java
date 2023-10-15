@@ -6,10 +6,16 @@ import java.io.FileReader;
 
 public class LogFile {
     private String filePath;
+    private BufferedWriter writer;
 
     // Constructor
     public LogFile(String filePath) {
         this.filePath = filePath;
+        try {
+            writer = new BufferedWriter(new FileWriter(filePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Method to write a log message to the file
