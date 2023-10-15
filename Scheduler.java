@@ -1,28 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.text.DecimalFormat;
 
 public class Scheduler {
     private List<BCP> readyprocesses;
     private List<BCP> blockedprocesses;
     private int quantum;
     private double ntrocas =0;
-    private double mediatrocas;
     private double nprocessos =0;
-    private double mediainstrucoes;
     private double ninstrucoes;
 
     public Scheduler(List<BCP> processes, int quantum) {
         this.readyprocesses = processes;
         this.blockedprocesses = new ArrayList<>(); // Inicialização da fila de processos bloqueados
         this.quantum = quantum;
-        this.processos = processes.size();
+        this.nprocessos = processes.size();
     }
 
     public void executeProcesses() {
         LogFile logFile = new LogFile("log.txt");
         for(int i = 0; i < readyprocesses.size(); i++){
-            logFile.writeLog(readyprocesses.get(i).getName());
+            logFile.writeLog("Carregando: " + readyprocesses.get(i).getName());
         }
         int i = 0;
         while (!readyprocesses.isEmpty() || !blockedprocesses.isEmpty()) {
@@ -70,8 +67,8 @@ public class Scheduler {
             }
 
         }
-        logFile.writeLog("MEDIA DE TROCAS: " + (mediatrocas = ntrocas/nprocessos));
-        logFile.writeLog("MEDIA DE INSTRUCOES: " + (mediainstrucoes = ninstrucoes / ntrocas));
+        logFile.writeLog("MEDIA DE TROCAS: " + (ntrocas/nprocessos));
+        logFile.writeLog("MEDIA DE INSTRUCOES: " + (ninstrucoes / ntrocas) );
         logFile.writeLog("QUANTUM: " + quantum);
     
     }
