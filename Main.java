@@ -21,6 +21,7 @@ public class Main {
             return;
         }
         // printPrograms(programs);
+
         Scheduler processes = new Scheduler(programs, quantum);
         processes.executeProcesses();
     }

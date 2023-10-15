@@ -17,7 +17,7 @@ public class Scheduler {
     }
 
     public void executeProcesses() {
-        LogFile logFile = new LogFile("log.txt");
+        LogFile logFile = new LogFile("log" + quantum + ".txt");
         for(int i = 0; i < readyprocesses.size(); i++){
             logFile.writeLog("Carregando: " + readyprocesses.get(i).getName());
         }
