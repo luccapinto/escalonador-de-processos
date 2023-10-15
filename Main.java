@@ -17,8 +17,8 @@ public class Main {
         }
         
         // Criando a fila de BCPs
-        Queue<BCP> readyQueue = new LinkedList<>();
-        Queue<BCP> blockedQueue = new LinkedList<>();
+        Queue<BCP> readyprocesses = new LinkedList<>();
+        Queue<BCP> blockedprocesses = new LinkedList<>();
 
         // Carregando os BCPs
         try {
@@ -28,7 +28,7 @@ public class Main {
                     .forEach(file -> {
                         try {
                             BCP bcp = new BCP(file.getPath());
-                            readyQueue.add(bcp);
+                            readyprocesses.add(bcp);
                             logFile.writeLog("Carregando " + bcp.getName());
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -41,7 +41,7 @@ public class Main {
         }
 
         // Instanciando e iniciando o Scheduler
-        Scheduler scheduler = new Scheduler(readyQueue, blockedQueue, quantum, logFile);
+        Scheduler scheduler = new Scheduler(readyprocesses, quantum);
         scheduler.executeProcesses();
         
         // Logando informações finais
