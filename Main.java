@@ -20,25 +20,52 @@ public class Main {
             System.out.println("Quantum inválido. Finalizando programa.");
             return;
         }
+        printPrograms(programs);
         Scheduler processes = new Scheduler(programs, quantum);
         processes.executeProcesses();
     }
 
+    public static void printPrograms(List<BCP> programs) {
+        if (programs.isEmpty()) {
+            System.out.println("Nenhum programa carregado.");
+            return;
+        }
+        
+        System.out.println("Programas carregados:");
+        for (int i = 0; i < programs.size(); i++) {
+            BCP program = programs.get(i);
+            System.out.println((i + 1) + ". Nome do Programa: " + program.getName());
+            // Adicione mais linhas aqui se a classe BCP tiver mais informações que você queira imprimir.
+        }
+    }
+    
+
     private static List<BCP> loadPrograms(String path, LogFile logFile) {
         List<BCP> programs = new ArrayList<>();
+        
         try {
             Files.list(Paths.get(path))
                  .filter(Files::isRegularFile)
+                 .filter(file -> !file.getFileName().toString().equals("quantum.txt")) // Ignorando o arquivo quantum.txt
                  .map(Path::toFile)
                  .forEach(file -> {
-                     logFile.writeLog("Carregando " + file.getName());
+                     try {
+                         logFile.writeLog("Carregando " + file.getName());
+                         BCP program = new BCP(file.getPath());
+                         programs.add(program);
+                     } catch (IOException e) {
+                         logFile.writeLog("Erro ao carregar o programa " + file.getName() + ": " + e.getMessage());
+                         e.printStackTrace();
+                     }
                  });
         } catch (IOException e) {
+            logFile.writeLog("Erro ao listar os arquivos no diretório " + path + ": " + e.getMessage());
             e.printStackTrace();
-            // Trate o erro conforme a necessidade do seu aplicativo.
         }
         return programs;
     }
+    
+    
 
     private static int readQuantum(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {

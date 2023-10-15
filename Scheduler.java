@@ -15,7 +15,7 @@ public class Scheduler {
     public void executeProcesses() {
         LogFile logFile = new LogFile("log.txt");
         int i = 0;
-        while (!readyprocesses.isEmpty() && !blockedprocesses.isEmpty()) {
+        while (!readyprocesses.isEmpty() || !blockedprocesses.isEmpty()) {
             if(i >= readyprocesses.size()){
                 i = 0;
             }
@@ -27,6 +27,7 @@ public class Scheduler {
                         if(blockedprocesses.get(n).getWaitTime() <= 0){
                             readyprocesses.add((blockedprocesses).get(n));
                             blockedprocesses.remove(n);
+                        }
                 }
             }
 
@@ -39,7 +40,6 @@ public class Scheduler {
                 switch (bcp.getState()) {
                     case "BLOQUEADO":
                         logFile.writeLog(bcp.getName() + " bloqueado após " + executedInstructions + " instruções.");
-                        blockedprocesses.add(bcp);
                         break;
                     case "TERMINADO":
                         logFile.writeLog(bcp.getName() + " terminado. X=" + bcp.getX() + ". Y=" + bcp.getY());
@@ -57,10 +57,9 @@ public class Scheduler {
                 }
                 i++;
             }
-            }
         }
-
     }
+
 
     private int executeInstructions(BCP bcp, int quantum, int index) {
         int executedInstructions = 0;
