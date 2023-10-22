@@ -8,23 +8,21 @@ public class BCP {
     private String name;
     private int x;
     private int y;
-    private int pc;
+    private int pc; // Program Counter
     private String state; // PRONTO, EXECUTANDO, BLOQUEADO, TERMINADO
-    private List<String> instructions;
-    private int waitTime;
-    // ... outros campos necessários ...
+    private List<String> instructions; // Lista de instruções do processo
+    private int waitTime; // Tempo de espera do processo (quando executa E/S tem que esperar por ex)
 
     public BCP(String filePath) throws IOException {
-        // Inicializando a lista de instruções
         this.instructions = new ArrayList<>();
         this.pc = 0;
         this.waitTime = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            // A primeira linha do arquivo contém o nome do programa
+            // Pega o nome do programa na primeira linha do arquivo
             name = br.readLine().trim();
 
-            // Leitura das demais linhas e extração de instruções e valores de X e Y
+            // Extrai as informações das outras linhas (X, Y ou instrução)
             String line;
             while ((line = br.readLine()) != null) {
                 line = line.trim();
@@ -38,7 +36,7 @@ public class BCP {
                 }
             }
 
-            state = "PRONTO"; // inicializa o processo como pronto
+            state = "PRONTO"; // Define o estado do processo como pronto para executar
         } catch (IOException e) {
             throw new IOException("Erro ao ler o arquivo " + filePath, e);
         } catch (NumberFormatException e) {
@@ -46,7 +44,7 @@ public class BCP {
         }
     }
 
-    // Getters e Setters para cada campo
+    // Getters e Setters
 
     public String getName() {
         return name;

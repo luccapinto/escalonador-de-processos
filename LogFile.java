@@ -5,7 +5,7 @@ import java.io.IOException;
 public class LogFile {
     private String filePath;
 
-    public LogFile(String filePath) {
+    public LogFile(String filePath) { // Cria um novo arquivo de log em vez de somente ficar adicionando novas linhas
         this.filePath = filePath;
         BufferedWriter writer = null;
         try {
@@ -23,9 +23,8 @@ public class LogFile {
             }
         }
     }
-    
 
-    // Escritor de logs
+    // Escritor de logs - Esse sim adiciona novas linhas
     public void writeLog(String message) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) { // true for append mode
             writer.write(message);
@@ -34,6 +33,7 @@ public class LogFile {
             System.err.println("Error writing the log message: " + e.getMessage());
         }
     }
+
     // Getters and Setters
     public String getFilePath() {
         return filePath;

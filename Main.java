@@ -20,12 +20,14 @@ public class Main {
             System.out.println("Quantum inválido. Finalizando programa.");
             return;
         }
+        // Testando se todos programas estão sendo carregados (descomente a função se for usar)
         // printPrograms(programs);
 
         Scheduler processes = new Scheduler(programs, quantum, logFile);
         processes.executeProcesses();
     }
 /* 
+    // Teste para ver se todos os programas estão sendo carregados
     public static void printPrograms(List<BCP> programs) {
         if (programs.isEmpty()) {
             System.out.println("Nenhum programa carregado.");
@@ -49,7 +51,7 @@ public class Main {
                  .filter(Files::isRegularFile)
                  .filter(file -> !file.getFileName().toString().equals("quantum.txt")) // Ignorando o arquivo quantum.txt
                  .map(Path::toFile)
-                 .forEach(file -> {
+                 .forEach(file -> { //Adicionando cada arguivo a lista de programas
                      try {
                          BCP program = new BCP(file.getPath());
                          programs.add(program);
@@ -65,8 +67,7 @@ public class Main {
         return programs;
     }
     
-    
-
+    // Leitor de quantum
     private static int readQuantum(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             return Integer.parseInt(br.readLine().trim());
