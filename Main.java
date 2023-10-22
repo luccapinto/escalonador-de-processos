@@ -28,6 +28,16 @@ public class Main {
 
         // Executa o escalonador
         processes.executeProcesses();
+/*
+        // Gera múltiplos logs de uma vez para múltipl0s quantums
+        int multiplo = 100; // coloca o numero de logs que você quer que sejam gerados
+        for (quantum = 1; quantum <= multiplo; quantum++){
+            LogFile multiplosLogFile = new LogFile("logfiles/log" + quantum + ".txt");
+            List<BCP> multiplosPrograms = loadPrograms(programsPath, logFile);
+            Scheduler multiplosProcessos = new Scheduler(multiplosPrograms, quantum, multiplosLogFile);
+            multiplosProcessos.executeProcesses();
+        }
+*/
     }
 /* 
     // Teste para ver se todos os programas estão sendo carregados
