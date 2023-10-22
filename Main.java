@@ -14,7 +14,7 @@ public class Main {
 
         // Carregar os programas
         List<BCP> programs = loadPrograms(programsPath, logFile);
-        
+        // Ler o quantum
         int quantum = readQuantum("programas/quantum.txt");
         if (quantum <= 0) {
             System.out.println("Quantum inválido. Finalizando programa.");
@@ -22,8 +22,11 @@ public class Main {
         }
         // Testando se todos programas estão sendo carregados (descomente a função se for usar)
         // printPrograms(programs);
-
+        
+        // Cria um escalonado com a lista de programas, quantum e o caminho do log
         Scheduler processes = new Scheduler(programs, quantum, logFile);
+
+        // Executa o escalonador
         processes.executeProcesses();
     }
 /* 
@@ -43,6 +46,7 @@ public class Main {
     }
 */
 
+    //Carrega cada programa e devolve a lista de programas
     private static List<BCP> loadPrograms(String path, LogFile logFile) {
         List<BCP> programs = new ArrayList<>();
         
@@ -67,7 +71,7 @@ public class Main {
         return programs;
     }
     
-    // Leitor de quantum
+    // Ler o quantum no arquivo e retornar seu valor
     private static int readQuantum(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             return Integer.parseInt(br.readLine().trim());
