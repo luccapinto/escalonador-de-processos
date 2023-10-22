@@ -4,8 +4,8 @@ public class Scheduler {
     private ProcessTable readyprocesses; // Fila de processos prontos
     private ProcessTable blockedprocesses; // Fila de processo bloqueados
     private int quantum;
-    private double ntrocas =0;
-    private double nprocessos =0;
+    private double ntrocas;
+    private double nprocessos;
     private double ninstrucoes;
     private LogFile logFile;
 
@@ -46,7 +46,7 @@ public class Scheduler {
                     bcp.setState("EXECUTANDO");
                     logFile.writeLog("Executando " + bcp.getName());
                     int pcinicial = bcp.getPc();
-                    int executedInstructions = executeInstructions(bcp, quantum, i, logFile); 
+                    int executedInstructions = executeInstructions(bcp, quantum, logFile); 
                     // Executa as instruções e verifica o estado após as execuções - Escreve no log de acordo com o estado
                     switch (bcp.getState()) {
                         case "BLOQUEADO":
@@ -80,9 +80,9 @@ public class Scheduler {
     
     }
 
-    private int executeInstructions(BCP bcp, int quantum, int index, LogFile logFile) {
+    private int executeInstructions(BCP bcp, int quantum, LogFile logFile) {
         int executedInstructions = 0;
-        List<String> instructions = readyprocesses.get(index).getInstructions(); // Salva o numero de instruções para evitar saida do array
+        List<String> instructions = bcp.getInstructions(); // Salva o numero de instruções para evitar saida do array
     
         for (int j = 0; bcp.getPc() < instructions.size() && j < quantum; bcp.incrementPc(), j++) {
             String comando = instructions.get(bcp.getPc()).substring(0, 2); 
@@ -93,7 +93,7 @@ public class Scheduler {
                     break;
 
                 case "E/": // Instrução de E/S - Conta como comando executado e adiciona na lista de bloqueados
-                    readyprocesses.get(index).setWaitTime(2);
+                    bcp.setWaitTime(2);
                     blockedprocesses.addProcess(bcp);
                     readyprocesses.removeProcess(bcp);
                     bcp.setState("BLOQUEADO");
