@@ -28,7 +28,7 @@ public class Main {
 
         // Executa o escalonador
         processes.executeProcesses();
-/* 
+/*
         // Gera múltiplos logs de uma vez para múltipl0s quantums
         int multiplo = 30; // coloca o numero de logs que você quer que sejam gerados
         for (quantum = 1; quantum <= multiplo; quantum++){
