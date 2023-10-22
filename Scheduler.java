@@ -8,16 +8,17 @@ public class Scheduler {
     private double ntrocas =0;
     private double nprocessos =0;
     private double ninstrucoes;
+    private LogFile logFile;
 
-    public Scheduler(List<BCP> processes, int quantum) {
+    public Scheduler(List<BCP> processes, int quantum, LogFile logFile) {
         this.readyprocesses = processes;
         this.blockedprocesses = new ArrayList<>(); // Inicialização da fila de processos bloqueados
         this.quantum = quantum;
         this.nprocessos = processes.size();
+        this.logFile = logFile;
     }
 
     public void executeProcesses() {
-        LogFile logFile = new LogFile("log" + quantum + ".txt");
         for(int i = 0; i < readyprocesses.size(); i++){
             logFile.writeLog("Carregando: " + readyprocesses.get(i).getName());
         }
@@ -100,6 +101,7 @@ public class Scheduler {
                     bcp.setState("TERMINADO");
                     readyprocesses.remove(index);
                     j = quantum; // Força a saída do loop
+                    executedInstructions++;
                     break;
             }
         }
