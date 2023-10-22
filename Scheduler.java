@@ -108,6 +108,14 @@ public class Scheduler {
                     j = quantum;
                     executedInstructions++;
                     break;
+                case "X=":
+                    bcp.setX(Integer.parseInt(instructions.get(bcp.getPc()).substring(2)));
+                    executedInstructions++;
+                    break;
+                case "Y=":
+                    bcp.setY(Integer.parseInt(instructions.get(bcp.getPc()).substring(2)));
+                    executedInstructions++;
+                    break;
             }
             // Decrementa o tempo de espera de toda a lista de bloqueados após cada execução
             for(int n = 0; n < blockedprocesses.size(); n++){

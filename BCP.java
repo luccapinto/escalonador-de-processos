@@ -26,14 +26,7 @@ public class BCP {
             String line;
             while ((line = br.readLine()) != null) {
                 line = line.trim();
-
-                if (line.startsWith("X=")) {
-                    x = Integer.parseInt(line.split("=")[1]);
-                } else if (line.startsWith("Y=")) {
-                    y = Integer.parseInt(line.split("=")[1]);
-                } else {
-                    instructions.add(line);
-                }
+                instructions.add(line);
             }
 
             state = "PRONTO"; // Define o estado do processo como pronto para executar
