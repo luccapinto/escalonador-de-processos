@@ -11,16 +11,16 @@ Possui todas as caracteristicas do processo:
 * Seu estado (PRONTO, EXECUTANDO, BLOQUEADO, TERMINADO);
 * Seu tempo de espera caso esteja efetuando Entrada/Saída.
   
-### Tabela de Processos (ProcessTable)
+### Tabela de Processos (TabelaDeProcessos)
 Contém toda a lista de processos, usaremos duas tabelas: Prontos e Bloqueados.
 
-### Escalonador (Scheduler)
+### Escalonador (Escalonador)
 Acessa a tabela de processos e, usando Round Robin, executa e administra os processos de acordo com o quantum e sua posição na fila.
 
 Não temos um quantum verdadeiro nesse escalonador, então decrementamos o tempo de espera de cada processo a cada execução de comando. Caso nenhum comando esteja pronto, ele decrementa todos os bloqueados até que pelo menos um saia da lista de bloqueados.
 
-### Extrator de médias dos logs para auxiliar no relatório (ExtraiLogs)
-Extrai as últimas três linhas de cada log (contendo o número do quantum, média de trocas e média de instruções). Criado para facilitar a leitura dos logs e agilizar o processo de fazer um relatório do melhor quantum.
+### Extrator de médias dos logs para auxiliar no relatório (ExtraiMedia)
+Extrai as últimas três linhas de cada log (contendo o número do quantum, média de trocas e média de instruções) e coloca no arquivo MediasExtraidas. Criado para facilitar a leitura dos logs e agilizar o processo de fazer um relatório do melhor quantum.
 
 ### Carregador de programas (Main)
 A funçao principal é responsável por: 
@@ -34,6 +34,5 @@ A funçao principal é responsável por:
 
 ## Projeto criado como exercício de programação da matéria de Sistemas Operacionais
 ### Integrantes do grupo:
-*  Armando Augusto Marchini Vidal
 *  Lucca Rodrigues Assunção Pinto
 *  Marcos Vilela Rezende Júnior

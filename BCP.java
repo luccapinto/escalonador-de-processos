@@ -83,11 +83,11 @@ public class BCP {
         return TempoEspera;
     }
 
-    public void setCooldown(int TempoEspera) {
+    public void setTempoEspera(int TempoEspera) {
         this.TempoEspera = TempoEspera;
     }
 
-    public void decrementCooldown(){
+    public void decrementaTempoEspera(){
         this.TempoEspera--;
     }
 
@@ -99,7 +99,7 @@ public class BCP {
         this.pc = pc;
     }
 
-    public void incrementPc(){
+    public void incrementaPc(){
         this.pc++;
     }
 
