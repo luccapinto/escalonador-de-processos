@@ -4,9 +4,9 @@ public class Scheduler {
     private ProcessTable readyprocesses; // Fila de processos prontos
     private ProcessTable blockedprocesses; // Fila de processo bloqueados
     private int quantum;
-    private double ntrocas;
+    private double ntrocas = 0;
     private double nprocessos;
-    private double ninstrucoes;
+    private double ninstrucoes = 0;
     private LogFile logFile;
 
     public Scheduler(List<BCP> processes, int quantum, LogFile logFile) {
@@ -40,7 +40,7 @@ public class Scheduler {
                 }
             }
             
-            for (int j = 0; j < readyprocesses.size(); j++) {
+            for (i = 0; i < readyprocesses.size(); i++) {
                 BCP bcp = readyprocesses.get(i);
                 if (bcp != null) {
                     bcp.setState("EXECUTANDO");
