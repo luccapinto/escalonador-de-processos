@@ -22,7 +22,7 @@ public class Main {
         }
         // printPrograms(programs);
 
-        Scheduler processes = new Scheduler(programs, quantum);
+        Scheduler processes = new Scheduler(programs, quantum, logFile);
         processes.executeProcesses();
     }
 /* 
@@ -51,7 +51,6 @@ public class Main {
                  .map(Path::toFile)
                  .forEach(file -> {
                      try {
-                         logFile.writeLog("Carregando " + file.getName());
                          BCP program = new BCP(file.getPath());
                          programs.add(program);
                      } catch (IOException e) {
