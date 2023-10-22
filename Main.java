@@ -9,56 +9,56 @@ import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        String programsPath = "programas";
+        String caminhoProgramas = "programas";
         LogFile logFile = new LogFile("log.txt");
 
         // Carregar os programas
-        List<BCP> programs = loadPrograms(programsPath, logFile);
+        List<BCP> programas = carregaProgramas(caminhoProgramas, logFile);
         // Ler o quantum
-        int quantum = readQuantum("programas/quantum.txt");
+        int quantum = extraiQuantum("programas/quantum.txt");
         if (quantum <= 0) {
             System.out.println("Quantum inválido. Finalizando programa.");
             return;
         }
         // Testando se todos programas estão sendo carregados (descomente a função se for usar)
-        // printPrograms(programs);
+        // printprogramas(programas);
         
         // Cria um escalonado com a lista de programas, quantum e o caminho do log
-        Scheduler processes = new Scheduler(programs, quantum, logFile);
+        Escalonador escalonador = new Escalonador(programas, quantum, logFile);
 
         // Executa o escalonador
-        processes.executeProcesses();
+        escalonador.executaEscalonador();
 /*
         // Gera múltiplos logs de uma vez para múltipl0s quantums
         int multiplo = 30; // coloca o numero de logs que você quer que sejam gerados
         for (quantum = 1; quantum <= multiplo; quantum++){
             LogFile multiplosLogFile = new LogFile("logfiles/log" + quantum + ".txt");
-            List<BCP> multiplosPrograms = loadPrograms(programsPath, logFile);
-            Scheduler multiplosProcessos = new Scheduler(multiplosPrograms, quantum, multiplosLogFile);
-            multiplosProcessos.executeProcesses();
+            List<BCP> multiplosprogramas = carregaProgramas(caminhoProgramas, logFile);
+            Escalonador multiplosProcessos = new Escalonador(multiplosprogramas, quantum, multiplosLogFile);
+            multiplosProcessos.executaEscalonador();
         }
 */
     }
 /* 
     // Teste para ver se todos os programas estão sendo carregados
-    public static void printPrograms(List<BCP> programs) {
-        if (programs.isEmpty()) {
+    public static void printprogramas(List<BCP> programas) {
+        if (programas.isEmpty()) {
             System.out.println("Nenhum programa carregado.");
             return;
         }
         
         System.out.println("Programas carregados:");
-        for (int i = 0; i < programs.size(); i++) {
-            BCP program = programs.get(i);
-            System.out.println((i + 1) + ". Nome do Programa: " + program.getName());
+        for (int i = 0; i < programas.size(); i++) {
+            BCP programa = programas.get(i);
+            System.out.println((i + 1) + ". Nome do Programa: " + programa.getName());
             // Adicione mais linhas aqui se a classe BCP tiver mais informações que você queira imprimir.
         }
     }
 */
 
     //Carrega cada programa e devolve a lista de programas
-    private static List<BCP> loadPrograms(String path, LogFile logFile) {
-        List<BCP> programs = new ArrayList<>();
+    private static List<BCP> carregaProgramas(String path, LogFile logFile) {
+        List<BCP> programas = new ArrayList<>();
         
         try {
             Files.list(Paths.get(path))
@@ -67,22 +67,22 @@ public class Main {
                  .map(Path::toFile)
                  .forEach(file -> { //Adicionando cada arguivo a lista de programas
                      try {
-                         BCP program = new BCP(file.getPath());
-                         programs.add(program);
+                         BCP programa = new BCP(file.getPath());
+                         programas.add(programa);
                      } catch (IOException e) {
-                         logFile.writeLog("Erro ao carregar o programa " + file.getName() + ": " + e.getMessage());
+                         logFile.escreveLog("Erro ao carregar o programa " + file.getName() + ": " + e.getMessage());
                          e.printStackTrace();
                      }
                  });
         } catch (IOException e) {
-            logFile.writeLog("Erro ao listar os arquivos no diretório " + path + ": " + e.getMessage());
+            logFile.escreveLog("Erro ao listar os arquivos no diretório " + path + ": " + e.getMessage());
             e.printStackTrace();
         }
-        return programs;
+        return programas;
     }
     
     // Ler o quantum no arquivo e retornar seu valor
-    private static int readQuantum(String path) {
+    private static int extraiQuantum(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             return Integer.parseInt(br.readLine().trim());
         } catch (IOException | NumberFormatException e) {

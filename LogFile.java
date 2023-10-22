@@ -3,13 +3,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class LogFile {
-    private String filePath;
+    private String caminhoArquivo;
 
-    public LogFile(String filePath) { // Cria um novo arquivo de log em vez de somente ficar adicionando novas linhas
-        this.filePath = filePath;
+    public LogFile(String caminhoArquivo) { // Cria um novo arquivo de log em vez de somente ficar adicionando novas linhas
+        this.caminhoArquivo = caminhoArquivo;
         BufferedWriter writer = null;
         try {
-            writer = new BufferedWriter(new FileWriter(filePath));
+            writer = new BufferedWriter(new FileWriter(caminhoArquivo));
             // File is created
         } catch (IOException e) {
             e.printStackTrace();
@@ -25,8 +25,8 @@ public class LogFile {
     }
 
     // Escritor de logs - Esse sim adiciona novas linhas
-    public void writeLog(String message) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) { // true for append mode
+    public void escreveLog(String message) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo, true))) { // true for append mode
             writer.write(message);
             writer.newLine(); // Add new line at the end of the message
         } catch (IOException e) {
@@ -35,11 +35,11 @@ public class LogFile {
     }
 
     // Getters and Setters
-    public String getFilePath() {
-        return filePath;
+    public String getcaminhoArquivo() {
+        return caminhoArquivo;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
+    public void setcaminhoArquivo(String caminhoArquivo) {
+        this.caminhoArquivo = caminhoArquivo;
     }
 }

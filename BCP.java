@@ -5,31 +5,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BCP {
-    private String name;
+    private String Nome;
     private int x;
     private int y;
     private int pc; // Program Counter
-    private String state; // PRONTO, EXECUTANDO, BLOQUEADO, TERMINADO
-    private List<String> instructions; // Lista de instruções do processo
-    private int waitTime; // Tempo de espera do processo (quando executa E/S tem que esperar por ex)
+    private String estado; // PRONTO, EXECUTANDO, BLOQUEADO, TERMINADO
+    private List<String> instrucoes; // Lista de instruções do processo
+    private int TempoEspera; // Tempo de espera do processo (quando executa E/S tem que esperar por ex)
 
     public BCP(String filePath) throws IOException {
-        this.instructions = new ArrayList<>();
+        this.instrucoes = new ArrayList<>();
         this.pc = 0;
-        this.waitTime = 0;
+        this.TempoEspera = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             // Pega o nome do programa na primeira linha do arquivo
-            name = br.readLine().trim();
+            Nome = br.readLine().trim();
 
             // Extrai as informações das outras linhas (X, Y ou instrução)
             String line;
             while ((line = br.readLine()) != null) {
                 line = line.trim();
-                instructions.add(line);
+                instrucoes.add(line);
             }
 
-            state = "PRONTO"; // Define o estado do processo como pronto para executar
+            estado = "PRONTO"; // Define o estado do processo como pronto para executar
         } catch (IOException e) {
             throw new IOException("Erro ao ler o arquivo " + filePath, e);
         } catch (NumberFormatException e) {
@@ -39,12 +39,12 @@ public class BCP {
 
     // Getters e Setters
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return Nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String Nome) {
+        this.Nome = Nome;
     }
 
     public int getX() {
@@ -63,32 +63,32 @@ public class BCP {
         this.y = y;
     }
 
-    public String getState() {
-        return state;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public  List<String>  getInstructions() {
-        return instructions;
+    public  List<String>  getInstrucoes() {
+        return instrucoes;
     }
 
-    public void setInstructions( List<String>  instructions) {
-        this.instructions = instructions;
+    public void setInstrucoes( List<String>  instrucoes) {
+        this.instrucoes = instrucoes;
     }
 
-    public int getWaitTime() {
-        return waitTime;
+    public int getTempoEspera() {
+        return TempoEspera;
     }
 
-    public void setWaitTime(int waitTime) {
-        this.waitTime = waitTime;
+    public void setCooldown(int TempoEspera) {
+        this.TempoEspera = TempoEspera;
     }
 
-    public void decreaseWaitTime(){
-        this.waitTime--;
+    public void decrementCooldown(){
+        this.TempoEspera--;
     }
 
     public int getPc() {
