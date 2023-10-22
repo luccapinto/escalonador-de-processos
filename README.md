@@ -32,7 +32,7 @@ A funçao principal é responsável por:
 * "programas" -> Todos os arquivos que se tornarão processos e o arquivo com o número do quantum
 * "logfiles" -> Todos os logs gerados com diferentes quantums para analisarmos e podermos gerar o relatório
 
-## Programa criado como exercício de programação da matéria de Sistemas Operacionais
+## Projeto criado como exercício de programação da matéria de Sistemas Operacionais
 ### Integrantes do grupo:
 *  Armando Augusto Marchini Vidal
 *  Lucca Rodrigues Assunção Pinto
