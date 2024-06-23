@@ -76,4 +76,5 @@ python ExtraiMedia.py
 ### Integrantes do grupo:
 * Lucca Rodrigues Assunção Pinto
 * Marcos Vilela Rezende Júnior
+* Armando Vidal
 
